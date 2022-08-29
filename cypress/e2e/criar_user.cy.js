@@ -15,8 +15,10 @@ describe('Criar novos usuários', () => {
     cy.get('.center').contains('Novo Usuário!!')
   })
 
-  it('Usuário preenche todas informações para criar usuário', function() {
+  it.only('Usuário preenche todas informações para criar usuário', function() {
     cy.PageForms()
-    cy.FillUserFields('Ana', 'Carolina', 'ana@teste.com')
+    cy.FillUserFields('Ana', 'Carolina', 'ana@teste.com', 'Endreço', 'Senac', 'QA', 'Feminino', 15)
+    cy.SubmitUser()
+    cy.contains('Usuário Criado com sucesso')
   })
 })

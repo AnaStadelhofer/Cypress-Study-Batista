@@ -30,8 +30,17 @@ Cypress.Commands.add('PageForms', function() {
     cy.get('.center').contains('Novo Usuário!!')
 })
 
-Cypress.Commands.add('FillUserFields', function(name_user, last_name, email) {
+Cypress.Commands.add('FillUserFields', function(name_user, last_name, email, address, university, job, gender, age) {
     cy.get('#user_name').type(name_user)
     cy.get('#user_lastname').type(last_name)
     cy.get('#user_email').type(email)
+    cy.get('#user_address').type(address)
+    cy.get('#user_university').type(university)
+    cy.get('#user_profile').type(job)
+    cy.get('#user_gender').type(gender)
+    cy.get('#user_age').type(age)
+})
+
+Cypress.Commands.add('SubmitUser', function() {
+    cy.get('.actions > input').click()
 })
