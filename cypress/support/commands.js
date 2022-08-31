@@ -44,3 +44,14 @@ Cypress.Commands.add('FillUserFields', function(name_user, last_name, email, add
 Cypress.Commands.add('SubmitUser', function() {
     cy.get('.actions > input').click()
 })
+
+Cypress.Commands.add('CancelInput', function() {
+    cy.get('.waves-light').click()
+})
+
+Cypress.Commands.add('FillMandatoryFields', function(name_user, last_name, email) {
+    cy.get('#user_name').type(name_user)
+    cy.get('#user_lastname').type(last_name)
+    cy.get('#user_email').type(email)
+})
+
